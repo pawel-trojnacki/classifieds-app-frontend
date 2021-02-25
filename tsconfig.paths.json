@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "modules/*": ["./src/modules/*"],
+      "router/*": ["./src/router/*"],
+      "theme/*": ["./src/theme/*"],
+      "utils/*": ["./src/utils/*"],
+      "types/*": ["./src/types/*"],
+      "store/*": ["./src/store/*"],
+      "hooks/*": ["./src/hooks/*"],
+      "assets/*": ["./src/assets/*"],
+      "constants/*": ["./src/constants/*"],
+      "__mocks__/*": ["./src/__mocks__/*"]
+    }
+  }
+}
