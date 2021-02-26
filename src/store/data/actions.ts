@@ -65,8 +65,6 @@ export const fetchSingleAd = (id: string) => async (dispatch: Dispatch) => {
       return dispatch(handleError(data as ErrorResponse));
     }
 
-    console.log(data);
-
     dispatch({
       type: DataActions.FetchSingleAd,
       payload: data,
@@ -160,12 +158,16 @@ export const patchFavourites = (
   }
 };
 
-export const postAd = (payload: FormData, func: () => void) => async (
-  dispatch: Dispatch
-) => {
-  const query = `${process.env.REACT_APP_API_URL}/ads`;
+export const postAd = (
+  payload: FormData,
+  func: () => void,
+  id: string | null = null
+) => async (dispatch: Dispatch) => {
+  const query = !!id
+    ? `${process.env.REACT_APP_API_URL}/ads/${id}`
+    : `${process.env.REACT_APP_API_URL}/ads`;
   const requestOptions: RequestInit = {
-    method: 'POST',
+    method: !!id ? 'PATCH' : 'POST',
     credentials: 'include',
     headers: {
       // 'Content-Type': 'application/x-www-form-urlencoded', //testing for errors
@@ -183,13 +185,13 @@ export const postAd = (payload: FormData, func: () => void) => async (
     ).then((res) => res.json());
 
     if (response.status !== 'ok') {
-      return dispatch(handleError(response as ErrorResponse, 'data'));
+      return dispatch(handleError(response as ErrorResponse, 'data-post'));
     }
 
     dispatch({ type: DataActions.PostSuccess });
     func();
   } catch {
-    return dispatch(handleUnknownError('data'));
+    return dispatch(handleUnknownError('data-post'));
   }
 };
 

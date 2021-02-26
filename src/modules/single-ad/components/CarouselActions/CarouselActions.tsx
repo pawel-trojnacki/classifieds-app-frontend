@@ -99,7 +99,6 @@ const CarouselActions: FC = () => {
             }
             disabled={isLoading}
           >
-            {/* {isLoading ? <CircularProgress /> : <Icon />} */}
             <Icon />
           </Fab>
         </Tooltip>

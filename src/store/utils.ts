@@ -2,7 +2,12 @@ import { ErrorResponse } from 'types/responses';
 import { AuthActions } from './auth/auth-actions.enum';
 import { DataActions } from './data/data-actions.enum';
 
-export type ErrorOption = 'data' | 'data-user' | 'data-favourites' | 'auth';
+export type ErrorOption =
+  | 'data'
+  | 'data-user'
+  | 'data-favourites'
+  | 'data-post'
+  | 'auth';
 
 const dispatchType = (option: ErrorOption) => {
   switch (option) {
@@ -12,6 +17,8 @@ const dispatchType = (option: ErrorOption) => {
       return { type: DataActions.FetchUserAdsError };
     case 'data-favourites':
       return { type: DataActions.FetchFavouritesError };
+    case 'data-post':
+      return { type: DataActions.PostError };
     case 'auth':
       return { type: AuthActions.LoginError };
     default:

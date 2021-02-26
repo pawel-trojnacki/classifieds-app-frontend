@@ -9,6 +9,7 @@ export enum DataActions {
   FetchUserAdsError = 'FETCH_USER_ADS_ERROR',
   FetchFavourites = 'FETCH_FAVOURITE_ADS',
   FetchFavouritesError = 'FETCH_FAVOURITE_ADS_ERROR',
+  PostError = 'POST_ERROR',
   PostSuccess = 'POST_AD_SUCCESS',
   SetLastLocation = 'SET_LAST_LOCATION',
 }

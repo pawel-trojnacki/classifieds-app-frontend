@@ -6,13 +6,20 @@ import { RootState } from 'store/root/store';
 
 interface Props {
   dataContext?: boolean;
+  dataPostContext?: boolean;
 }
 
-const ErrorAlert: FC<Props> = ({ dataContext }) => {
+const ErrorAlert: FC<Props> = ({ dataContext, dataPostContext }) => {
   const errorAuth = useSelector((state: RootState) => state.auth.error);
-  const errorData = useSelector((state: RootState) => state.data.error);
+  const { error: errorData, postError: errorDataPost } = useSelector(
+    (state: RootState) => state.data
+  );
 
-  const error = dataContext ? errorData : errorAuth;
+  const error = dataContext
+    ? errorData
+    : dataPostContext
+    ? errorDataPost
+    : errorAuth;
 
   if (!error) {
     return null;

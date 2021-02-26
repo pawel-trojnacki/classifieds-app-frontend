@@ -16,6 +16,7 @@ const Dropzone: FC<Props> = ({ files, setFiles, limit }) => {
       initialFiles={files}
       acceptedFiles={['image/jpeg', 'image/png']}
       filesLimit={limit ?? 5}
+      maxFileSize={2097152}
       onChange={handleDropzoneChange}
     />
   );
