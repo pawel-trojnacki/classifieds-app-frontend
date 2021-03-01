@@ -3,7 +3,7 @@ import HomePage from 'modules/home/views/HomePage';
 import AdPage from 'modules/single-ad/views/AdPage';
 import AuthPage from 'modules/auth/views/AuthPage';
 import UserPage from 'modules/user/views/UserPage';
-import CreateAdPage from 'modules/manage-ad/views/CreateAdPage';
+import ManageAdPage from 'modules/manage-ad/views/ManageAdPage';
 
 interface Route {
   path: string;
@@ -35,12 +35,12 @@ export const routes: Route[] = [
   {
     path: '/post-ad',
     isProtected: true,
-    component: CreateAdPage,
+    component: ManageAdPage,
   },
   {
     path: '/edit/:id',
     isProtected: true,
-    component: CreateAdPage,
+    component: ManageAdPage,
   },
   {
     path: '/',

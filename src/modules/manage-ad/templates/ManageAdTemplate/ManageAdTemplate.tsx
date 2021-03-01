@@ -4,9 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import CreateAdForm from 'modules/manage-ad/components/CreateAdForm';
 import EditAdForm from 'modules/manage-ad/components/EditAdForm';
+import FormLoader from 'modules/manage-ad/components/FormLoader';
+import ErrorWrapper from 'modules/common/components/ErrorWrapper';
 import { clearCurrentAd, fetchAds, fetchSingleAd } from 'store/data/actions';
 import { RootState } from 'store/root/store';
-import ErrorWrapper from 'modules/common/components/ErrorWrapper';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -65,7 +66,13 @@ const ManageAdTemplate: FC = () => {
   if (!currentAd || isLoading) {
     return (
       <div>
-        {error ? <ErrorWrapper content={error} /> : <h1>Loading...</h1>}
+        {error ? (
+          <ErrorWrapper content={error} />
+        ) : (
+          <div className={classes.root}>
+            <FormLoader />
+          </div>
+        )}
       </div>
     );
   }

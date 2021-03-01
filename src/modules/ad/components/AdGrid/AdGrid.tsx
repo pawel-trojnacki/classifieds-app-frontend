@@ -21,7 +21,7 @@ const AdList: FC<Props> = ({ ads, small }) => {
       <Grid container>
         {ads
           ? ads.map((ad) => <AdCard key={ad._id} ad={ad} small={small} />)
-          : [1, 2].map((num) => <AdLoader key={num} />)}
+          : [1, 2, 3, 4].map((num) => <AdLoader key={num} />)}
       </Grid>
     </Box>
   );

@@ -1,7 +1,7 @@
 import { Dispatch, FC, SetStateAction } from 'react';
 import { DropzoneArea } from 'material-ui-dropzone';
 
-interface Props {
+export interface Props {
   files: File[];
   setFiles: Dispatch<SetStateAction<File[]>>;
   limit?: number;

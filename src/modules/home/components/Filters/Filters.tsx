@@ -47,6 +47,13 @@ const Filters: FC = () => {
     );
   };
 
+  const minPriceActiveOptions = minPriceOptions.filter(
+    (option) => option.value < maxprice
+  );
+  const maxPriceActiveOptions = maxPriceOptions.filter(
+    (option) => option.value > minprice
+  );
+
   return (
     <div className={classes.root}>
       <Grid container alignItems="flex-end" spacing={3}>
@@ -67,7 +74,7 @@ const Filters: FC = () => {
             name={FiltersType.MinPrice}
             handleChange={handleSelectChange}
             id="min-price-filter"
-            options={minPriceOptions}
+            options={minPriceActiveOptions}
           />
         </Grid>
         <Grid item xs={12} md={3}>
@@ -77,7 +84,7 @@ const Filters: FC = () => {
             name={FiltersType.MaxPrice}
             handleChange={handleSelectChange}
             id="max-price-filter"
-            options={maxPriceOptions}
+            options={maxPriceActiveOptions}
           />
         </Grid>
         <Grid item xs={12} md={3}>

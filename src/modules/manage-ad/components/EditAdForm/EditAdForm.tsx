@@ -74,16 +74,20 @@ const EditAdForm: FC<Props> = ({ editedAd }) => {
       >
         <FormBase formik={formik} />
       </FormStep>
-      <FormStep
-        label="Remove images"
-        helperText="Do you want to remove some old images?"
-      >
-        <ImagesArea
-          images={images}
-          filesToRemove={filesToRemove}
-          setFilesToRemove={setFilesToRemove}
-        />
-      </FormStep>
+
+      {images.length > 0 && (
+        <FormStep
+          label="Remove images"
+          helperText="Do you want to remove some old images?"
+        >
+          <ImagesArea
+            images={images}
+            filesToRemove={filesToRemove}
+            setFilesToRemove={setFilesToRemove}
+          />
+        </FormStep>
+      )}
+
       <FormStep
         label="Add new images"
         helperText="Do you want to add new images?"
