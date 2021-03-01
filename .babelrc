@@ -5,8 +5,15 @@
       {
         "root": ["./src"],
         "alias": {
-          //   "modules": "./src/modules",
-          //   "types": "./src/types",
+          "modules": "./src/modules",
+          "types": "./src/types",
+          "store": "./src/store",
+          "hooks": "./src/hooks",
+          "theme": "./src/theme",
+          "constants": "./src/constants",
+          "utils": "./src/utils",
+          "assets": "./src/assets",
+          "src": "./src"
         }
       }
     ]

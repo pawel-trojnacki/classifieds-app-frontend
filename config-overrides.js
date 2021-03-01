@@ -15,6 +15,7 @@ module.exports = function override(config) {
       assets: path.resolve(__dirname, 'src/assets'),
       constants: path.resolve(__dirname, 'src/constants'),
       __mocks__: path.resolve(__dirname, 'src/__mocks__'),
+      src: path.resolve(__dirname, 'src/'),
     },
   };
 

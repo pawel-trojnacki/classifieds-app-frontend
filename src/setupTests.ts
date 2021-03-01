@@ -1,5 +1,4 @@
 import '@testing-library/jest-dom';
-// import '__mocks__/intersectionObserver.mock';
 global.IntersectionObserver = class IntersectionObserver {
   root = null;
   rootMargin = '';

@@ -20,7 +20,7 @@ const AdCard: FC<Props> = ({ ad, small }) => {
   const classes = useStyles();
   const { _id, title, price, images, createdAt } = ad;
   return (
-    <Grid item xs={6} sm={4} md={small ? 4 : 3}>
+    <Grid item xs={6} sm={4} md={small ? 4 : 3} data-testid="ad-card">
       <Reveal>
         <Link to={`/ad/${_id}`}>
           <Card className={classes.root} elevation={0}>

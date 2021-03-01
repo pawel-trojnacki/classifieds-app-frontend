@@ -21,7 +21,7 @@ const AdListItem: FC<Props> = ({ ad, favourites }) => {
   const { _id, title, price, images, createdAt } = ad;
   const classes = useStyles();
   return (
-    <Box component="li" className={classes.root}>
+    <Box component="li" className={classes.root} data-testid="ad-list-item">
       <Reveal>
         <Paper className={classes.paper}>
           <Grid container>
