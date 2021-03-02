@@ -29,9 +29,10 @@ const TextInput: FC<TextFieldProps> = (props) => {
           variant={props.variant || 'outlined'}
           fullWidth
           type={showPassword ? 'text' : 'password'}
+          data-testid="text-input"
           InputProps={{
             endAdornment: (
-              <InputAdornment position="end">
+              <InputAdornment position="end" data-testid="password-adornment">
                 <IconButton
                   aria-label="toggle password visibility"
                   onClick={handleClickShowPassword}
@@ -49,21 +50,11 @@ const TextInput: FC<TextFieldProps> = (props) => {
   return (
     <Box paddingBottom={3}>
       <TextField
+        data-testid="text-input"
         {...props}
         variant={props.variant || 'outlined'}
         fullWidth
         autoComplete="off"
-        // InputProps={
-        //   props.name === 'price'
-        //     ? {
-        //         startAdornment: (
-        //           <InputAdornment position="start">
-        //             <DollarIcon />
-        //           </InputAdornment>
-        //         ),
-        //       }
-        //     : {}
-        // }
       />
     </Box>
   );
