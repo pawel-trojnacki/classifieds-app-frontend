@@ -1,5 +1,5 @@
 /* eslint-disable jest/no-mocks-import */
-import { renderWithRouter } from 'src/test-utils';
+import { renderWithRouter } from 'test_utils/renderWithRouter';
 import { mockAd } from '__mocks__/ad.mock';
 import AdCard from 'modules/ad/components/AdCard';
 import { AdCategories } from 'types/ad-categories.enum';

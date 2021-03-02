@@ -53,6 +53,7 @@ export const IconButton: FC<Props> = ({
         onClick={onClick}
         aria-label={ariaLabel}
         aria-controls={ariaControls}
+        data-testid="icon-button"
       >
         {children}
       </MuiIconButton>

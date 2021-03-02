@@ -29,7 +29,11 @@ const LoadingButton: FC<Props> = ({
       type="submit"
       {...rest}
     >
-      {isLoading ? <CircularProgress size={20} /> : <>{content}</>}
+      {isLoading ? (
+        <CircularProgress size={26} data-testid="circular-progress" />
+      ) : (
+        <>{content}</>
+      )}
     </Button>
   );
 };

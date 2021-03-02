@@ -6,6 +6,7 @@
       "router/*": ["./src/router/*"],
       "theme/*": ["./src/theme/*"],
       "utils/*": ["./src/utils/*"],
+      "test_utils/*": ["./src/test-utils/*"],
       "types/*": ["./src/types/*"],
       "store/*": ["./src/store/*"],
       "hooks/*": ["./src/hooks/*"],

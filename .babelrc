@@ -12,6 +12,7 @@
           "theme": "./src/theme",
           "constants": "./src/constants",
           "utils": "./src/utils",
+          "test_utils": "./src/test-utils",
           "assets": "./src/assets",
           "src": "./src"
         }

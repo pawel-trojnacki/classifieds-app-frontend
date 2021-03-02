@@ -9,7 +9,7 @@ const AdLoader: FC = () => {
   const classes = useStyles();
   const { isSmWidth } = useViewportSize();
   return (
-    <Grid item xs={6} sm={4} md={3}>
+    <Grid item xs={6} sm={4} md={3} data-testid="ad-loader">
       <Box margin={{ xs: '12px 5px', sm: '20px 12px' }}>
         <RectSkeleton height={isSmWidth ? 180 : 140} />
         <div className={classes.content}>
