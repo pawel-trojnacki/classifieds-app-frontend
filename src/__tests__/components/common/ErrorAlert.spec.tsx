@@ -6,22 +6,22 @@ import store from 'store/root';
 
 const mockStore = configureStore();
 
-const AUTH_ERROR = 'Not authenticated';
-const DATA_ERROR = 'Some data error';
-const DATA_POST_ERROR = 'Some data post error';
+const authError = 'Not authenticated';
+const dataError = 'Some data error';
+const dataPostError = 'Some data post error';
 
 const storeWithAuthError = {
-  auth: { error: AUTH_ERROR },
+  auth: { error: authError },
   data: { error: null, postError: null },
 };
 const storeWithDataError = {
   auth: { error: null },
-  data: { error: DATA_ERROR, postError: null },
+  data: { error: dataError, postError: null },
 };
 
 const storeWithDataPostError = {
   auth: { error: null },
-  data: { error: null, postError: DATA_POST_ERROR },
+  data: { error: null, postError: dataPostError },
 };
 
 describe('ErrorAlert', () => {
@@ -41,7 +41,7 @@ describe('ErrorAlert', () => {
         <ErrorAlert />
       </Provider>
     );
-    expect(getByText(AUTH_ERROR)).toBeInTheDocument();
+    expect(getByText(authError)).toBeInTheDocument();
   });
 
   it('should display data error', () => {
@@ -50,7 +50,7 @@ describe('ErrorAlert', () => {
         <ErrorAlert dataContext />
       </Provider>
     );
-    expect(getByText(DATA_ERROR)).toBeInTheDocument();
+    expect(getByText(dataError)).toBeInTheDocument();
   });
 
   it('should display data post error', () => {
@@ -59,6 +59,6 @@ describe('ErrorAlert', () => {
         <ErrorAlert dataPostContext />
       </Provider>
     );
-    expect(getByText(DATA_POST_ERROR)).toBeInTheDocument();
+    expect(getByText(dataPostError)).toBeInTheDocument();
   });
 });

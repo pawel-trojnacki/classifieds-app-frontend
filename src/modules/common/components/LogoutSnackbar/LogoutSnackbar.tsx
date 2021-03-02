@@ -24,7 +24,12 @@ const LogoutSnackbar: FC = () => {
     }
   }, [isAuthenticated]);
   return (
-    <Snackbar open={isOpen} autoHideDuration={4000} onClose={handleClose}>
+    <Snackbar
+      open={isOpen}
+      autoHideDuration={4000}
+      onClose={handleClose}
+      data-testid="snackbar"
+    >
       <Alert severity="success" variant="filled" onClose={handleClose}>
         Logged out successfully!
       </Alert>

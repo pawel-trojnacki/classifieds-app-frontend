@@ -20,5 +20,7 @@ export const sliceText = (text: string, maxCount = 35): string => {
     }
   }
 
-  return `${slicedText}...`;
+  const slicedTextWithoutFirstSpace = slicedText.substring(1);
+
+  return `${slicedTextWithoutFirstSpace}...`;
 };
