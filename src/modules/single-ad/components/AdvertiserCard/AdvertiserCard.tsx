@@ -27,7 +27,9 @@ const AdvertiserCard: FC<Props> = ({
           <Typography variant="h2">Advertiser</Typography>
         </Box>
         <Box marginTop={3}>
-          <Typography variant="h3">{username}</Typography>
+          <Typography variant="h3" data-testid="username">
+            {username}
+          </Typography>
         </Box>
         <Box marginTop={2}>
           {isOnline ? (
@@ -47,7 +49,9 @@ const AdvertiserCard: FC<Props> = ({
                 </SvgIcon>
               </Grid>
               <Grid item>
-                <Typography variant="h4">{element}</Typography>
+                <Typography variant="h4" data-testid="contact-item">
+                  {element}
+                </Typography>
               </Grid>
             </Grid>
           ))}
