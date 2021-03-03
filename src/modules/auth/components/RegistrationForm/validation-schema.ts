@@ -4,7 +4,7 @@ import 'yup-phone';
 export const validationSchema = yup.object().shape({
   username: yup
     .string()
-    .min(6, 'username is tog short')
+    .min(6, 'username is too short')
     .max(20, 'username is too long')
     .required('username is required'),
   email: yup

@@ -27,6 +27,7 @@ const LoadingButton: FC<Props> = ({
       color={secondary ? 'secondary' : 'primary'}
       disabled={isLoading}
       type="submit"
+      data-testid="loading-button"
       {...rest}
     >
       {isLoading ? (
