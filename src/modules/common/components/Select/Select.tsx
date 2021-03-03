@@ -47,6 +47,9 @@ const Select: FC<Props> = ({
         labelId={id}
         onChange={handleChange}
         data-testid="mui-select"
+        inputProps={{
+          'data-testid': 'mui-select-input',
+        }}
         {...rest}
       >
         {options.map(({ value, title }) => (

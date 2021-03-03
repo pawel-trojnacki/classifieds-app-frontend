@@ -20,17 +20,18 @@ describe('TextInput', () => {
 
   it('should change input value correctly', async () => {
     const { getByDisplayValue } = render(<TextInput />);
+    const nodeText = 'some text';
 
     const input = getByDisplayValue('');
 
     fireEvent.change(input, {
       target: {
-        value: 'some text',
+        value: nodeText,
       },
     });
 
-    const nodeText = await waitFor(() => getByDisplayValue('some text'));
-
-    expect(nodeText).toBeInTheDocument();
+    await waitFor(() => {
+      expect(input).toHaveDisplayValue(nodeText);
+    });
   });
 });

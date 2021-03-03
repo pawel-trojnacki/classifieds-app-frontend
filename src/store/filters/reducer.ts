@@ -23,7 +23,7 @@ export interface FiltersState {
   search: string;
 }
 
-const initialState: FiltersState = {
+export const initialState: FiltersState = {
   page: 1,
   sort: Sort.Newest,
   category: 'all',
