@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
 import 'test_utils/test-server';
-import { IntersectionObserver } from '__mocks__/IntersectionObserver.mock';
+import { IntersectionObserver } from 'test_utils/mocks/IntersectionObserver.mock';
 
 global.IntersectionObserver = IntersectionObserver;

@@ -3,7 +3,7 @@ import { ThemeProvider } from '@material-ui/core';
 import AdList, { Props } from './AdList';
 import { lightTheme } from 'theme/light-theme';
 import { darkTheme } from 'theme/dark-theme';
-import { mockAdList } from '__mocks__/ad.mock';
+import { mockAdList } from 'test_utils/mocks/ad.mock';
 
 const testAds = mockAdList();
 

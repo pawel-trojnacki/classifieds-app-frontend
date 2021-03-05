@@ -1,6 +1,5 @@
-/* eslint-disable jest/no-mocks-import */
 import { render } from '@testing-library/react';
-import { mockUser } from '__mocks__/user.mock';
+import { mockUser } from 'test_utils/mocks/user.mock';
 import AdvertiserCard from 'modules/single-ad/components/AdvertiserCard';
 
 const { username, phone, email, isOnline, lastSeen } = mockUser(

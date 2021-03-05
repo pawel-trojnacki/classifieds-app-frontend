@@ -4,7 +4,7 @@ import store from 'store/root';
 import { ThemeProvider } from '@material-ui/core';
 import { lightTheme } from 'theme/light-theme';
 import { darkTheme } from 'theme/dark-theme';
-import { mockAd } from '__mocks__/ad.mock';
+import { mockAd } from 'test_utils/mocks/ad.mock';
 import InfoCard, { Props } from './InfoCard';
 
 const { title, price, state, createdAt, description } = mockAd();

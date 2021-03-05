@@ -1,6 +1,5 @@
-/* eslint-disable jest/no-mocks-import */
 import { render } from '@testing-library/react';
-import { mockAd } from '__mocks__/ad.mock';
+import { mockAd } from 'test_utils/mocks/ad.mock';
 import InfoCard from 'modules/single-ad/components/InfoCard';
 
 const { title, price, state, createdAt, description } = mockAd();

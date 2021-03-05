@@ -4,7 +4,7 @@ import store from 'store/root';
 import { ThemeProvider } from '@material-ui/core';
 import { lightTheme } from 'theme/light-theme';
 import { darkTheme } from 'theme/dark-theme';
-import { mockUser } from '__mocks__/user.mock';
+import { mockUser } from 'test_utils/mocks/user.mock';
 import AdvertiserCard, { Props } from './AdvertiserCard';
 
 const { username, phone, email, isOnline, lastSeen } = mockUser();
