@@ -1,8 +1,6 @@
-import { render } from '@testing-library/react';
-import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import ErrorAlert from 'modules/common/components/ErrorAlert';
-import store from 'store/root';
+import { renderWithStore } from 'test_utils/render-with-store';
 
 const mockStore = configureStore();
 
@@ -10,54 +8,50 @@ const authError = 'Not authenticated';
 const dataError = 'Some data error';
 const dataPostError = 'Some data post error';
 
-const storeWithAuthError = {
-  auth: { error: authError },
+const storeWithoutError = mockStore({
+  auth: { error: null },
   data: { error: null, postError: null },
-};
-const storeWithDataError = {
+});
+
+const storeWithDataError = mockStore({
   auth: { error: null },
   data: { error: dataError, postError: null },
-};
+});
 
-const storeWithDataPostError = {
+const storeWithAuthError = mockStore({
+  auth: { error: authError },
+  data: { error: null, postError: null },
+});
+
+const storeWithDataPostError = mockStore({
   auth: { error: null },
   data: { error: null, postError: dataPostError },
-};
+});
 
 describe('ErrorAlert', () => {
   it('should be null, when error does not exist', () => {
-    const { container } = render(
-      <Provider store={store}>
-        <ErrorAlert />
-      </Provider>
-    );
+    const { container } = renderWithStore(<ErrorAlert />, storeWithoutError);
     expect(container).toBeEmptyDOMElement();
     expect(container.firstChild).toBeNull();
   });
 
   it('should display authentication error', () => {
-    const { getByText } = render(
-      <Provider store={mockStore(storeWithAuthError)}>
-        <ErrorAlert />
-      </Provider>
-    );
+    const { getByText } = renderWithStore(<ErrorAlert />, storeWithAuthError);
     expect(getByText(authError)).toBeInTheDocument();
   });
 
   it('should display data error', () => {
-    const { getByText } = render(
-      <Provider store={mockStore(storeWithDataError)}>
-        <ErrorAlert dataContext />
-      </Provider>
+    const { getByText } = renderWithStore(
+      <ErrorAlert dataContext />,
+      storeWithDataError
     );
     expect(getByText(dataError)).toBeInTheDocument();
   });
 
   it('should display data post error', () => {
-    const { getByText } = render(
-      <Provider store={mockStore(storeWithDataPostError)}>
-        <ErrorAlert dataPostContext />
-      </Provider>
+    const { getByText } = renderWithStore(
+      <ErrorAlert dataPostContext />,
+      storeWithDataPostError
     );
     expect(getByText(dataPostError)).toBeInTheDocument();
   });

@@ -1,5 +1,5 @@
 /* eslint-disable jest/no-mocks-import */
-import { renderWithRouter } from 'test_utils/renderWithRouter';
+import { renderWithRouter } from 'test_utils/render-with-router';
 import { mockAdList } from '__mocks__/ad.mock';
 import AdGrid from 'modules/ad/components/AdGrid';
 

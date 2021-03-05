@@ -1,33 +1,26 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { Provider } from 'react-redux';
+import { fireEvent, screen, waitFor } from '@testing-library/react';
 import SearchInput from 'modules/home/components/SearchInput';
-import { mockStoreWithThunk } from 'test_utils/mockStoreWithThunk';
+import { renderWithStore } from 'test_utils/render-with-store';
+import { mockStore } from 'test_utils/mock-store';
 
-const store = mockStoreWithThunk({
-  filters: {
-    search: '',
-    page: 1,
-  },
-});
-
-beforeEach(() => {
-  render(
-    <Provider store={store}>
-      <SearchInput />
-    </Provider>
-  );
-});
+const store = mockStore();
 
 describe('SearchInput', () => {
   it('should render input with initial value', () => {
-    expect(screen.getByLabelText('Search')).toBeInTheDocument();
-    expect(screen.getByDisplayValue('')).toBeInTheDocument();
+    const { getByLabelText, getByRole } = renderWithStore(<SearchInput />);
+
+    expect(getByLabelText('Search')).toBeInTheDocument();
+    expect(getByRole('textbox')).toHaveDisplayValue('');
 
     screen.debug();
   });
 
   it('should render typed value', async () => {
-    const input = screen.getByDisplayValue('');
+    const { getByRole } = renderWithStore(<SearchInput />, store);
+
+    expect(getByRole('textbox')).toBeInTheDocument();
+
+    const input = getByRole('textbox');
     const nodeText = 'some text';
 
     fireEvent.change(input, {
@@ -37,7 +30,12 @@ describe('SearchInput', () => {
     });
 
     await waitFor(() => {
+      const {
+        filters: { search },
+      } = store.getState();
+
       expect(input).toHaveDisplayValue(nodeText);
+      expect(search).toBe(nodeText);
     });
   });
 });

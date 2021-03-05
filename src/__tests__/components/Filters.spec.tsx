@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import Filters from 'modules/home/components/Filters';
-import { mockStoreWithThunk } from 'test_utils/mockStoreWithThunk';
+import { mockStoreWithThunk } from 'test_utils/mock-store-with-thunk';
 import { initialState } from 'store/filters/reducer';
 import { Sort } from 'types/sort.enum';
 

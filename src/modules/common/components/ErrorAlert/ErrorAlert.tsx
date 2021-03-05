@@ -27,7 +27,9 @@ const ErrorAlert: FC<Props> = ({ dataContext, dataPostContext }) => {
 
   return (
     <Box marginTop={3}>
-      <Alert severity="error">{error}</Alert>
+      <Alert severity="error" data-testid="error-alert">
+        {error}
+      </Alert>
     </Box>
   );
 };

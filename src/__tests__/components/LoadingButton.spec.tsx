@@ -1,7 +1,6 @@
-import { render } from '@testing-library/react';
-import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import LoadingButton from 'modules/common/components/LoadingButton';
+import { renderWithStore } from 'test_utils/render-with-store';
 
 const buttonContent = 'Click me';
 
@@ -24,20 +23,18 @@ const storeWithLoadingData = mockStore({
 
 describe('LoadingButton', () => {
   it('should render button with content', () => {
-    const { getByText } = render(
-      <Provider store={storeWithoutLoading}>
-        <LoadingButton content={buttonContent} />
-      </Provider>
+    const { getByText } = renderWithStore(
+      <LoadingButton content={buttonContent} />,
+      storeWithoutLoading
     );
 
     expect(getByText(buttonContent)).toBeInTheDocument();
   });
 
   it('should return circular progress while auth isLoading is true', () => {
-    const { getByTestId, queryByText } = render(
-      <Provider store={storeWithLoadingAuth}>
-        <LoadingButton content={buttonContent} />
-      </Provider>
+    const { getByTestId, queryByText } = renderWithStore(
+      <LoadingButton content={buttonContent} />,
+      storeWithLoadingAuth
     );
 
     expect(getByTestId('circular-progress')).toBeInTheDocument();
@@ -45,11 +42,11 @@ describe('LoadingButton', () => {
   });
 
   it('should return circular progress while data isLoading is true', () => {
-    const { getByTestId, queryByText } = render(
-      <Provider store={storeWithLoadingData}>
-        <LoadingButton content={buttonContent} dataContext />
-      </Provider>
+    const { getByTestId, queryByText } = renderWithStore(
+      <LoadingButton content={buttonContent} dataContext />,
+      storeWithLoadingData
     );
+
     expect(getByTestId('circular-progress')).toBeInTheDocument();
     expect(queryByText(buttonContent)).toBeNull();
   });

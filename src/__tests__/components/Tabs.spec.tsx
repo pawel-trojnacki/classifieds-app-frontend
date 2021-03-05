@@ -1,22 +1,9 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { Provider } from 'react-redux';
+import { fireEvent, screen, waitFor } from '@testing-library/react';
 import Tabs from 'modules/home/components/Tabs';
 import { categories } from 'constants/categories';
-import { mockStoreWithThunk } from 'test_utils/mockStoreWithThunk';
+import { renderWithStore } from 'test_utils/render-with-store';
 
-const store = mockStoreWithThunk({
-  filters: {
-    category: 'all',
-  },
-});
-
-beforeEach(() => {
-  render(
-    <Provider store={store}>
-      <Tabs />
-    </Provider>
-  );
-});
+beforeEach(() => renderWithStore(<Tabs />));
 
 describe('Tabs', () => {
   it('should render tabs correctly', () => {
