@@ -40,7 +40,12 @@ const Select: FC<Props> = ({
   const classes = useStyles();
 
   return (
-    <FormControl fullWidth variant={variant || 'standard'} error={rest.error}>
+    <FormControl
+      fullWidth
+      variant={variant || 'standard'}
+      error={rest.error}
+      data-testid="select-form-control"
+    >
       <InputLabel id={id}>{rest.label}</InputLabel>
       <MuiSelect
         className={classes.capitalize}

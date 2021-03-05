@@ -20,6 +20,7 @@ beforeEach(() => {
 
 describe('ComponentName', () => {
   it('should render select component correctly', () => {
+    expect(screen.getByTestId('select-form-control')).toBeInTheDocument();
     expect(screen.getByLabelText(label)).toBeInTheDocument();
     expect(screen.getByDisplayValue(value)).toBeInTheDocument();
   });

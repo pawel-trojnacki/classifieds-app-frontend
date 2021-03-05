@@ -4,6 +4,9 @@ import { setupServer } from 'msw/node';
 const server = setupServer(
   rest.post(`${process.env.REACT_APP_API_URL}/users`, (req, res, ctx) => {
     return res(ctx.status(200), ctx.json({ status: 'ok' }));
+  }),
+  rest.post(`${process.env.REACT_APP_API_URL}/ads`, (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json({ status: 'ok' }));
   })
 );
 
