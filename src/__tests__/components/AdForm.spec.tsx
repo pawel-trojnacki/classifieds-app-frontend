@@ -48,7 +48,7 @@ describe('CreateAdForm', () => {
 
   it('should render errors for empty fields and not for correctly filled', async () => {
     //   DOM selectors used to get and trigger Material UI select elements
-    const buttons = document.querySelectorAll('[role=button]');
+    const buttons = Array.from(document.querySelectorAll('[role=button]'));
     const selectStateButton = buttons[1];
 
     fireEvent.mouseDown(selectStateButton!);

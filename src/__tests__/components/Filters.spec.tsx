@@ -1,52 +1,70 @@
-import { render } from '@testing-library/react';
-import { Provider } from 'react-redux';
+import { fireEvent, screen, waitFor, within } from '@testing-library/react';
+import { renderWithStore } from 'test_utils/render-with-store';
 import Filters from 'modules/home/components/Filters';
-import { mockStoreWithThunk } from 'test_utils/mock-store-with-thunk';
-import { initialState } from 'store/filters/reducer';
-import { Sort } from 'types/sort.enum';
-
-const store = mockStoreWithThunk({
-  filters: initialState,
-});
-
-const editedStore = mockStoreWithThunk({
-  filters: {
-    ...initialState,
-    sort: Sort.PriceAsc,
-  },
-});
+import { mockStore } from 'test_utils/mock-store';
+import { priceSteps } from 'modules/home/constants/price-steps';
 
 const labels = ['Sort', 'Min price', 'Max price', 'With images'];
+const initialSortOption = 'Newest';
 
-const initialSortValue = 'Newest';
+const store = mockStore();
+
+beforeEach(() => {
+  // store added manually because it needs to be referenced
+  renderWithStore(<Filters />, store);
+});
 
 describe('Filters', () => {
   it('should render Filters component with initial state', async () => {
-    const { getByLabelText, getByText, findAllByRole } = render(
-      <Provider store={store}>
-        <Filters />
-      </Provider>
-    );
     labels.forEach((label) => {
-      expect(getByLabelText(label)).toBeInTheDocument();
+      expect(screen.getByLabelText(label)).toBeInTheDocument();
     });
 
-    expect(getByText(initialSortValue)).toBeInTheDocument();
+    expect(screen.getByText(initialSortOption)).toBeInTheDocument();
 
-    expect(await findAllByRole('button')).toHaveLength(3);
+    expect(await screen.findAllByTestId('mui-select')).toHaveLength(3);
   });
 
-  it('should render Filters component with edited state', async () => {
-    const { findAllByTestId, getByText } = render(
-      <Provider store={editedStore}>
-        <Filters />
-      </Provider>
+  it('should change global state values', async () => {
+    const [sortButton, minPriceButton, maxPriceButton] = Array.from(
+      document.querySelectorAll('[role=button]')
     );
 
-    const inputs = await findAllByTestId('mui-select-input');
+    fireEvent.mouseDown(sortButton);
 
-    expect(inputs[0]).toHaveDisplayValue('priceasc');
+    await waitFor(() => {
+      const sortListbox = document.body.querySelector('ul[role=listbox]');
+      const sortItem = within(sortListbox as HTMLElement).getByText(
+        /price desc/i
+      );
+      fireEvent.click(sortItem);
+    });
 
-    expect(getByText(/price asc/i)).toBeInTheDocument();
+    fireEvent.mouseDown(minPriceButton);
+
+    await waitFor(() => {
+      const minPriceListbox = document.body.querySelector('ul[role=listbox]');
+      const minPriceItem = minPriceListbox!.childNodes[1];
+      fireEvent.click(minPriceItem);
+    });
+
+    fireEvent.mouseDown(maxPriceButton);
+
+    await waitFor(() => {
+      const maxPriceListbox = document.body.querySelector('ul[role=listbox]');
+      const maxPriceItem = maxPriceListbox!.childNodes[4];
+      fireEvent.click(maxPriceItem);
+    });
+
+    console.log(store.getState());
+
+    const {
+      filters: { sort, minprice, maxprice },
+    } = store.getState();
+
+    expect(sort).toBe('pricedesc');
+    expect(minprice).toBe(priceSteps[1]);
+    // id 6 => max price always starts one step further than current min price
+    expect(maxprice).toBe(priceSteps[6]);
   });
 });
