@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { mockAd } from 'test_utils/mocks/ad.mock';
+import { mockAd } from 'mocks/ad.mock';
 import InfoCard from 'modules/single-ad/components/InfoCard';
 
 const { title, price, state, createdAt, description } = mockAd();

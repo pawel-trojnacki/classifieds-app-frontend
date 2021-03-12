@@ -15,4 +15,8 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+if (!!window && (window as any).Cypress) {
+  (window as any).store = store;
+}
+
 serviceWorkerRegistration.register();

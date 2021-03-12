@@ -1,5 +1,5 @@
 import { renderWithRouter } from 'test_utils/render-with-router';
-import { mockAdList } from 'test_utils/mocks/ad.mock';
+import { mockAdList } from 'mocks/ad.mock';
 import AdGrid from 'modules/ad/components/AdGrid';
 
 const ads = mockAdList();

@@ -1,7 +1,7 @@
 import { fireEvent, screen, waitFor, within } from '@testing-library/react';
 import { renderWithStore } from 'test_utils/render-with-store';
 import Filters from 'modules/home/components/Filters';
-import { mockStore } from 'test_utils/mock-store';
+import { mockStore } from 'mock-store';
 import { priceSteps } from 'modules/home/constants/price-steps';
 
 const labels = ['Sort', 'Min price', 'Max price', 'With images'];

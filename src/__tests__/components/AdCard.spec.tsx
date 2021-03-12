@@ -1,5 +1,5 @@
 import { renderWithRouter } from 'test_utils/render-with-router';
-import { mockAd } from 'test_utils/mocks/ad.mock';
+import { mockAd } from 'mocks/ad.mock';
 import AdCard from 'modules/ad/components/AdCard';
 import { AdCategories } from 'types/ad-categories.enum';
 

@@ -1,7 +1,7 @@
 import { fireEvent, screen, waitFor } from '@testing-library/react';
 import SearchInput from 'modules/home/components/SearchInput';
 import { renderWithStore } from 'test_utils/render-with-store';
-import { mockStore } from 'test_utils/mock-store';
+import { mockStore } from 'mock-store';
 
 const store = mockStore();
 

@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { mockUser } from 'test_utils/mocks/user.mock';
+import { mockUser } from 'mocks/user.mock';
 import AdvertiserCard from 'modules/single-ad/components/AdvertiserCard';
 
 const { username, phone, email, isOnline, lastSeen } = mockUser(

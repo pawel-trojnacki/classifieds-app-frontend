@@ -1,4 +1,4 @@
-import { AdCategories } from 'types/ad-categories.enum';
+import { AdCategories } from '../types/ad-categories.enum';
 import { Ad } from 'types/ad.interface';
 
 export const mockedDescription =

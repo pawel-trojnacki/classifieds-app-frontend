@@ -16,7 +16,10 @@ const Parallax: FC<Props> = ({
   const y = useTransform(scrollY, [0, yRange || 250], [0, -100]);
   const opacity = useTransform(scrollY, [0, yRangeOpacity || 250], [1, 0]);
   return (
-    <motion.div style={withOpacity ? { y, opacity } : { y }}>
+    <motion.div
+      style={withOpacity ? { y, opacity } : { y }}
+      className="parallax"
+    >
       {children}
     </motion.div>
   );

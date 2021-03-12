@@ -1,5 +1,5 @@
 import { renderWithRouter } from 'test_utils/render-with-router';
-import { mockAd } from 'test_utils/mocks/ad.mock';
+import { mockAd } from 'mocks/ad.mock';
 import AdListItem from 'modules/ad/components/AdListItem';
 import { AdCategories } from 'types/ad-categories.enum';
 
