@@ -73,7 +73,12 @@ const CarouselInner: FC<Props> = ({ images }) => {
       removeArrowOnDeviceType="mobile"
     >
       {images.map((image) => (
-        <img key={image} className={classes.img} src={`${image}`} alt="" />
+        <img
+          key={image}
+          className={classes.img}
+          src={`${process.env.REACT_APP_IMG_BASE_URL}/${image}`}
+          alt=""
+        />
       ))}
     </MultiCarousel>
   );
