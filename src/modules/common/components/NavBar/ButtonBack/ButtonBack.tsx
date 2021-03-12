@@ -15,7 +15,7 @@ const Component: FC = () => {
   const classes = useStyles();
   return (
     <Link to="/" white>
-      <Button color="inherit" component="span">
+      <Button color="inherit" component="span" id="nav-back">
         <BackIcon className={classes.icon} />
         Back
       </Button>

@@ -11,7 +11,7 @@ const Tabs: FC<Props> = ({ value, handleChange }) => {
     <Box marginY={{ xs: 4, md: 5 }}>
       <MuiTabs value={value} onChange={handleChange} variant="fullWidth">
         {['Sign in', 'Sign up'].map((label) => (
-          <Tab key={label} label={label} />
+          <Tab key={label} label={label} data-cy="swith-auth-form" />
         ))}
       </MuiTabs>
     </Box>

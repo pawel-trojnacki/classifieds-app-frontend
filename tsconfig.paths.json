@@ -12,6 +12,7 @@
       "hooks/*": ["./src/hooks/*"],
       "assets/*": ["./src/assets/*"],
       "constants/*": ["./src/constants/*"],
+      "mocks/*": ["./src/mocks/*"],
       "src": ["./src/*"]
     }
   }
