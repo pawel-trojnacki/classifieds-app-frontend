@@ -27,11 +27,20 @@ export const Toolbar: FC<ToopbarPrimaryProps> = ({ isAuthenticated, type }) => {
     <MuiToolbar className={classes.toolbar}>
       {type === 'main' ? <Title /> : <ButtonBack />}
       <div>
-        <Link to={isAuthenticated ? '/post-ad' : '/auth'} white>
-          <Button color="inherit" id="post-ad">
-            Post ad
-          </Button>
-        </Link>
+        {isAuthenticated ? (
+          <Link to="/post-ad" white>
+            <Button color="inherit" component="span">
+              Post ad
+            </Button>
+          </Link>
+        ) : (
+          <Link to="/auth" white>
+            <Button color="inherit" component="span">
+              Post ad
+            </Button>
+          </Link>
+        )}
+
         <SwitchMode />
         {isAuthenticated ? (
           <Menu />
