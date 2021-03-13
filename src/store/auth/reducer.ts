@@ -7,8 +7,13 @@ export interface AuthState {
   error: null | string;
 }
 
+const isAuth =
+  !!window && typeof window !== 'undefined'
+    ? !!localStorage.getItem('auth')
+    : false;
+
 export const initialState: AuthState = {
-  isAuthenticated: document?.cookie ? document.cookie.includes('jwt') : false,
+  isAuthenticated: isAuth,
   isLoading: false,
   error: null,
 };
@@ -24,12 +29,14 @@ export const authReducer: Reducer<AuthState> = (
         isLoading: true,
       };
     case AuthActions.LoginSuccess:
+      localStorage.setItem('auth', 'true');
       return {
         ...state,
         isAuthenticated: true,
         isLoading: false,
       };
     case AuthActions.Logout:
+      localStorage.removeItem('auth');
       return {
         ...state,
         isAuthenticated: false,
