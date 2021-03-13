@@ -23,7 +23,7 @@ const Dialog: FC<Props> = ({ open, handleClose, _id }) => {
     dispatch(deleteAd(_id));
     handleClose();
     // temporary solution
-    window.location.reload();
+    // window.location.reload();
   };
 
   return (
