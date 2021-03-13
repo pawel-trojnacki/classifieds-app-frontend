@@ -169,10 +169,9 @@ export const postAd = (
   const requestOptions: RequestInit = {
     method: !!id ? 'PATCH' : 'POST',
     credentials: 'include',
-    headers: {
-      // 'Content-Type': 'application/x-www-form-urlencoded', //testing for errors
-      'Access-Control-Allow-Origin': `${process.env.REACT_APP_API_URL}`,
-    },
+    // headers: {
+    //   'Access-Control-Allow-Origin': `${process.env.REACT_APP_API_URL}`,
+    // },
     body: payload,
   };
 
