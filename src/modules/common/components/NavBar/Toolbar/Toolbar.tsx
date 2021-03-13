@@ -28,7 +28,7 @@ export const Toolbar: FC<ToopbarPrimaryProps> = ({ isAuthenticated, type }) => {
       {type === 'main' ? <Title /> : <ButtonBack />}
       <div>
         <Link to={isAuthenticated ? '/post-ad' : '/auth'} white>
-          <Button color="inherit" component="span" id="post-ad">
+          <Button color="inherit" id="post-ad">
             Post ad
           </Button>
         </Link>

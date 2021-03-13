@@ -7,6 +7,7 @@ export interface AuthState {
   error: null | string;
 }
 
+// Tricky and not optimal solution - backend send secure cookies, so frontend can't access them
 const isAuth =
   !!window && typeof window !== 'undefined'
     ? !!localStorage.getItem('auth')
