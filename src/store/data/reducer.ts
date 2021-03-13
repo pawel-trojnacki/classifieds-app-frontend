@@ -15,6 +15,7 @@ export interface DataState {
   favouriteAds: Ad[];
   favouriteAdsError: StateError;
   postError: StateError;
+  deleteError: StateError;
   lastLocation: null | string;
 }
 
@@ -29,6 +30,7 @@ const initialState: DataState = {
   favouriteAds: [],
   favouriteAdsError: null,
   postError: null,
+  deleteError: null,
   lastLocation: null,
 };
 
@@ -44,6 +46,7 @@ export const dataReducer: Reducer<DataState> = (
         userAdsError: null,
         favouriteAdsError: null,
         postError: null,
+        deleteError: null,
         isLoading: true,
       };
     case DataActions.FetchError:
@@ -105,6 +108,17 @@ export const dataReducer: Reducer<DataState> = (
         postError: payload,
       };
     case DataActions.PostSuccess:
+      return {
+        ...state,
+        isLoading: false,
+      };
+    case DataActions.DeleteError:
+      return {
+        ...state,
+        isLoading: false,
+        deleteError: payload,
+      };
+    case DataActions.DeleteSuccess:
       return {
         ...state,
         isLoading: false,

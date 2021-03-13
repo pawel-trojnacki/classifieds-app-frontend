@@ -24,6 +24,7 @@ const UserTemplate: FC = () => {
   useEffect(() => {
     if (isUserAdsPage) {
       dispatch(fetchUserAds());
+      console.log({ userAds });
     } else {
       dispatch(fetchUserAds('favourites'));
     }

@@ -7,6 +7,7 @@ export type ErrorOption =
   | 'data-user'
   | 'data-favourites'
   | 'data-post'
+  | 'data-delete'
   | 'auth';
 
 const dispatchType = (option: ErrorOption) => {
@@ -19,6 +20,8 @@ const dispatchType = (option: ErrorOption) => {
       return { type: DataActions.FetchFavouritesError };
     case 'data-post':
       return { type: DataActions.PostError };
+    case 'data-delete':
+      return { type: DataActions.DeleteError };
     case 'auth':
       return { type: AuthActions.LoginError };
     default:

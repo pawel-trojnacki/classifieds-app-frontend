@@ -12,7 +12,7 @@ const navBarHeightXsUp = '56px';
 const navBarHeightSmUp = '64px';
 
 const PLACEHOLDER_IMAGE =
-  'https://aduu.pl/wp-content/uploads/2019/04/placeholder-image.jpg';
+  'http://challengefutureacademy.com/storage/noimage.jpg';
 
 export interface Props {
   images: string[];

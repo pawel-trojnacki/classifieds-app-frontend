@@ -10,7 +10,7 @@ import Actions from './Actions';
 import ActionsFavourites from './ActionsFavourites';
 
 const PLACEHOLDER_IMAGE =
-  'https://aduu.pl/wp-content/uploads/2019/04/placeholder-image.jpg';
+  'http://challengefutureacademy.com/storage/noimage.jpg';
 
 export interface Props {
   ad: Ad;
@@ -20,6 +20,7 @@ export interface Props {
 const AdListItem: FC<Props> = ({ ad, favourites }) => {
   const { _id, title, price, images, createdAt } = ad;
   const classes = useStyles();
+
   return (
     <Box component="li" className={classes.root} data-testid="ad-list-item">
       <Reveal>

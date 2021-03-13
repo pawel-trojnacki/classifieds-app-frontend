@@ -158,6 +158,32 @@ export const patchFavourites = (
   }
 };
 
+export const deleteAd = (id: string) => async (dispatch: Dispatch) => {
+  const query = `${process.env.REACT_APP_API_URL}/ads/${id}`;
+
+  const requestOptions: RequestInit = {
+    method: 'DELETE',
+    credentials: 'include',
+  };
+
+  dispatch({ type: DataActions.FetchRequest });
+
+  try {
+    const response: MainResponse = await fetch(
+      query,
+      requestOptions
+    ).then((res) => res.json());
+
+    if (response.status !== 'ok') {
+      return dispatch(handleError(response as ErrorResponse, 'data-delete'));
+    }
+
+    dispatch({ type: DataActions.DeleteSuccess });
+  } catch {
+    return dispatch(handleUnknownError('data-delete'));
+  }
+};
+
 export const postAd = (
   payload: FormData,
   func: () => void,
@@ -169,9 +195,6 @@ export const postAd = (
   const requestOptions: RequestInit = {
     method: !!id ? 'PATCH' : 'POST',
     credentials: 'include',
-    // headers: {
-    //   'Access-Control-Allow-Origin': `${process.env.REACT_APP_API_URL}`,
-    // },
     body: payload,
   };
 

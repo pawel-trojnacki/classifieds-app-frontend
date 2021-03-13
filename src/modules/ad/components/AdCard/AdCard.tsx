@@ -9,7 +9,7 @@ import Price from '../Price';
 import Date from '../Date';
 
 const PLACEHOLDER_IMAGE =
-  'https://aduu.pl/wp-content/uploads/2019/04/placeholder-image.jpg';
+  'http://challengefutureacademy.com/storage/noimage.jpg';
 
 export interface Props {
   ad: Ad;
