@@ -51,14 +51,14 @@ const ImageField: FC<Props> = ({
       />
       {isRemoved ? (
         <Button
-          variant="contained"
-          fullWidth
-          startIcon={<UndoIcon />}
-          style={{ borderRadius: 0 }}
-          onClick={() => handleRemoveButtonClick(image)}
-        >
-          Undo
-        </Button>
+        variant="contained"
+        fullWidth
+        startIcon={<UndoIcon />}
+        style={{ borderRadius: 0 }}
+        onClick={() => handleRemoveButtonClick(image)}
+      >
+        Undo
+      </Button>
       ) : (
         <Button
           variant="contained"
