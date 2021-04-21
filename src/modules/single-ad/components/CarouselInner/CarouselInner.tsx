@@ -12,7 +12,7 @@ const navBarHeightXsUp = '56px';
 const navBarHeightSmUp = '64px';
 
 const PLACEHOLDER_IMAGE =
-  'http://challengefutureacademy.com/storage/noimage.jpg';
+  'http://eurogrid.in/wp-content/uploads/2017/06/product_image_not_available.png';
 
 export interface Props {
   images: string[];
