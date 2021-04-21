@@ -9,7 +9,7 @@ import Price from '../Price';
 import Date from '../Date';
 
 const PLACEHOLDER_IMAGE =
-  'http://challengefutureacademy.com/storage/noimage.jpg';
+  'http://eurogrid.in/wp-content/uploads/2017/06/product_image_not_available.png';
 
 export interface Props {
   ad: Ad;

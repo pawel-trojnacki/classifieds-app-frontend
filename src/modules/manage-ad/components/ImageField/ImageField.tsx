@@ -53,21 +53,22 @@ const ImageField: FC<Props> = ({
         <Button
           variant="contained"
           fullWidth
-          startIcon={<UndoIcon />}
-          style={{ borderRadius: 0 }}
-          onClick={() => handleUndoButtonClick(image)}
-        >
-          Undo
-        </Button>
-      ) : (
-        <Button
-          variant="contained"
-          fullWidth
           startIcon={<DeleteIcon />}
           style={{ borderRadius: 0 }}
           onClick={() => handleRemoveButtonClick(image)}
         >
           Remove
+        </Button>
+      ) : 
+      (
+        <Button
+          variant="contained"
+          fullWidth
+          startIcon={<UndoIcon />}
+          style={{ borderRadius: 0 }}
+          onClick={() => handleUndoButtonClick(image)}
+        >
+          Undo
         </Button>
       )}
     </Grid>
